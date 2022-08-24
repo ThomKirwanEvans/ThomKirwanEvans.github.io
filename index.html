@@ -24,6 +24,18 @@ window.onload = function () {
     $.getJSON("map.geojson", function(data) {
 
     var geojson = L.geoJson(data, {
+    
+      pointToLayer: function (feature, latlng) {
+       var smallIcon = L.icon({
+                          iconSize: [16, 16],
+                          iconAnchor: [16, 16],
+                          popupAnchor:  [8, 8],
+                          iconUrl: 'icons/green_dot.png'
+                  });
+
+         return L.marker(latlng, {icon: smallIcon});
+        },
+    
       onEachFeature: function (feature, layer) {
         layer.bindPopup(feature.properties.Name);
       }
@@ -31,7 +43,7 @@ window.onload = function () {
 
     var map = L.map('my-map')
     .fitBounds(geojson.getBounds());
-//    .setView([0.0,-10.0], 2);
+    .setView([53.380645, -2.478618], 2);
 
     basemap.addTo(map);
     geojson.addTo(map);
