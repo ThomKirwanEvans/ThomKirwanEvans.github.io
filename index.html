@@ -110,7 +110,68 @@ window.onload = function () {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	});
 
-    $.getJSON("map.geojson", function(data) {
+
+    $.getJSON("geojson/thom.geojson", function(data) {
+
+
+    // do this four times for me, fae, both, neither
+    var geojson = L.geoJson(data, {
+    
+      pointToLayer: function (feature, latlng) {
+       var smallIcon = L.icon({
+                          iconSize: [14, 14],
+                          iconAnchor: [14, 14],
+                          popupAnchor:  [8, 8],
+                          iconUrl: 'icons/gray_dot.png'
+                  });
+
+         return L.marker(latlng, {icon: smallIcon});
+        },
+    
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.Name);
+      }
+    });
+
+    var map = L.map('my-map')
+    .fitBounds(geojson.getBounds())
+    .setView([53.380645, -2.478618], 14);
+
+    basemap.addTo(map);
+    geojson.addTo(map);
+  });
+
+    $.getJSON("geojson/fae.geojson", function(data) {
+
+
+    // do this four times for me, fae, both, neither
+    var geojson = L.geoJson(data, {
+    
+      pointToLayer: function (feature, latlng) {
+       var smallIcon = L.icon({
+                          iconSize: [14, 14],
+                          iconAnchor: [14, 14],
+                          popupAnchor:  [8, 8],
+                          iconUrl: 'icons/red_dot.png'
+                  });
+
+         return L.marker(latlng, {icon: smallIcon});
+        },
+    
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.Name);
+      }
+    });
+
+    var map = L.map('my-map')
+    .fitBounds(geojson.getBounds())
+    .setView([53.380645, -2.478618], 14);
+
+    basemap.addTo(map);
+    geojson.addTo(map);
+  });
+  
+  $.getJSON("geojson/both.geojson", function(data) {
 
 
     // do this four times for me, fae, both, neither
@@ -134,7 +195,7 @@ window.onload = function () {
 
     var map = L.map('my-map')
     .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 15);
+    .setView([53.380645, -2.478618], 14);
 
     basemap.addTo(map);
     geojson.addTo(map);
