@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="js/leaflet.css" />
 <script src="js/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
 
 
 <style>
@@ -14,9 +15,25 @@
 </head>
 
 <body>
+
+    <div id='bar_chart'></div>
+    
+
 	<div id="my-map"></div>
 <script>
 window.onload = function () {
+
+    // Plotting
+    var data = [{
+      type: 'bar',
+      x: [20, 14, 23],
+      y: ['giraffes', 'orangutans', 'monkeys'],
+      orientation: 'h'
+    }];
+    
+    Plotly.newPlot('myDiv', data);
+
+    // Mapping
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	});
@@ -27,8 +44,8 @@ window.onload = function () {
     
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
-                          iconSize: [16, 16],
-                          iconAnchor: [16, 16],
+                          iconSize: [8, 8],
+                          iconAnchor: [8, 8],
                           popupAnchor:  [8, 8],
                           iconUrl: 'icons/green_dot.png'
                   });
@@ -43,7 +60,7 @@ window.onload = function () {
 
     var map = L.map('my-map')
     .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 2);
+    .setView([53.380645, -2.478618], 12);
 
     basemap.addTo(map);
     geojson.addTo(map);
