@@ -111,7 +111,7 @@ window.onload = function () {
 	});
 
     var map = L.map('my-map')
-    .fitBounds(geojson.getBounds())
+    //.fitBounds(geojson.getBounds())
     .setView([53.380645, -2.478618], 14);
 
     basemap.addTo(map);
@@ -125,8 +125,8 @@ window.onload = function () {
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
                           iconSize: [14, 14],
-                          iconAnchor: [14, 14],
-                          popupAnchor:  [8, 8],
+                          iconAnchor: [0, 0],
+                          popupAnchor:  [0, 0],
                           iconUrl: 'icons/gray_dot.png'
                   });
 
@@ -178,8 +178,8 @@ window.onload = function () {
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
                           iconSize: [14, 14],
-                          iconAnchor: [14, 14],
-                          popupAnchor:  [8, 8],
+                          iconAnchor: [0, 0],
+                          popupAnchor:  [0, 0],
                           iconUrl: 'icons/green_dot.png'
                   });
 
@@ -204,8 +204,8 @@ window.onload = function () {
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
                           iconSize: [14, 14],
-                          iconAnchor: [14, 14],
-                          popupAnchor:  [8, 8],
+                          iconAnchor: [0, 0],
+                          popupAnchor:  [0, 0],
                           iconUrl: 'icons/black_dot.png'
                   });
 
