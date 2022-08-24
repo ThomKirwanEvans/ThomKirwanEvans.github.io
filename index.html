@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <head>
 <link rel="stylesheet" href="js/leaflet.css" />
+<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
 <script src="js/leaflet.js"></script>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+
 
 
 <style>
@@ -17,7 +20,11 @@
   text-align: center;
   background: #1abc9c;
   color: white;
+  font-family: 'ABeeZee';
   font-size: 30px;
+}
+body {
+    font-family: 'ABeeZee';font-size: 22px;
 }
 </style>
 </head>
@@ -40,10 +47,18 @@ window.onload = function () {
     // Plotting
     var data = [{
       type: 'bar',
-      x: [16, 18],
+      x: [11, 12.5],
       y: ['Thom  ', 'Fae   '],
+      marker:{
+      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)',]
+      }
+      
       orientation: 'h'
     }];
+    
+    var bar_layout = {
+      title: 'Top 10s %',
+    };
     
     Plotly.newPlot('bar_chart', data);
     
@@ -63,7 +78,20 @@ window.onload = function () {
     
     var timedata = [trace1, trace2];
     
-    Plotly.newPlot('line_chart', timedata);
+    var time_layout = {
+      title: 'Segments Over Time',
+      xaxis: {
+        title: 'Weeks',
+        showgrid: false,
+        zeroline: false
+      },
+      yaxis: {
+        title: 'Segments',
+        showline: false
+      }
+    };
+    
+    Plotly.newPlot('line_chart', timedata, time_layout);
 
     // Mapping
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -92,7 +120,7 @@ window.onload = function () {
 
     var map = L.map('my-map')
     .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 12);
+    .setView([53.380645, -2.478618], 15);
 
     basemap.addTo(map);
     geojson.addTo(map);
