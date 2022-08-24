@@ -11,10 +11,23 @@
 	width:960px;
 	height:500px;
 }
+
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
 </style>
 </head>
 
 <body>
+
+    <div class="header">
+      <h1>Lymm Segments</h1>
+      <p>The race is on for 144 segments</p>
+    </div>
 
     <div id='bar_chart'></div>
     
@@ -26,12 +39,12 @@ window.onload = function () {
     // Plotting
     var data = [{
       type: 'bar',
-      x: [20, 14, 23],
-      y: ['giraffes', 'orangutans', 'monkeys'],
+      x: [16, 18],
+      y: ['Thom', 'Fae', 'monkeys'],
       orientation: 'h'
     }];
     
-    Plotly.newPlot('myDiv', data);
+    Plotly.newPlot('bar_chart', data);
 
     // Mapping
     var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
