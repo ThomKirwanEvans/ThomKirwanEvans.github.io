@@ -42,7 +42,7 @@ window.onload = function () {
     });
 
     var map = L.map('my-map')
-    .fitBounds(geojson.getBounds());
+    .fitBounds(geojson.getBounds())
     .setView([53.380645, -2.478618], 2);
 
     basemap.addTo(map);
