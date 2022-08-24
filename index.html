@@ -145,7 +145,7 @@ window.onload = function () {
 
 
     // do this four times for me, fae, both, neither
-    var geojson = L.geoJson(data, {
+    var geojson0 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
@@ -163,19 +163,14 @@ window.onload = function () {
       }
     });
 
-    var map = L.map('my-map')
-    .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 14);
-
-    basemap.addTo(map);
-    geojson.addTo(map);
+    geojson0.addTo(map);
   });
   
   $.getJSON("geojson/both.geojson", function(data) {
 
 
     // do this four times for me, fae, both, neither
-    var geojson = L.geoJson(data, {
+    var geojson1 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
@@ -193,19 +188,15 @@ window.onload = function () {
       }
     });
 
-    var map = L.map('my-map')
-    .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 14);
 
-    basemap.addTo(map);
-    geojson.addTo(map);
+    geojson1.addTo(map);
   });
   
   $.getJSON("geojson/neither.geojson", function(data) {
 
 
     // do this four times for me, fae, both, neither
-    var geojson = L.geoJson(data, {
+    var geojson2 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
@@ -223,12 +214,7 @@ window.onload = function () {
       }
     });
 
-    var map = L.map('my-map')
-    .fitBounds(geojson.getBounds())
-    .setView([53.380645, -2.478618], 14);
-
-    basemap.addTo(map);
-    geojson.addTo(map);
+    geojson2.addTo(map);
   });
 
 };
