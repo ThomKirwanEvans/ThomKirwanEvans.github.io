@@ -33,7 +33,7 @@ body {
 
     <div class="header">
       <h1>Lymm Segments</h1>
-      <p>The race is on for 144 segments</p>
+      <p>Getting Top 10 in all 144</p>
     </div>
 
     <div id='bar_chart'></div>
@@ -45,10 +45,12 @@ body {
 window.onload = function () {
 
     // Plotting
+    var y_actuals = [16, 18, 30]
     var data = [{
       type: 'bar',
-      x: [11, 12.5],
-      y: ['Thom  ', 'Fae   '],
+      x: [11, 12.5, 20.8],
+      y: ['Thom  ', 'Fae   ', 'Combined  '],
+      text: y_actuals.map(String),
       marker:{
       color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)',]
       },
@@ -218,6 +220,9 @@ window.onload = function () {
     });
 
     geojson2.addTo(map);
+  });
+  
+
   });
 
 };
