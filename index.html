@@ -16,7 +16,7 @@
 <style>
 #my-map {
 	width:960px;
-	height:500px;
+	height:960px;
 }
 
 .header {
@@ -40,11 +40,11 @@ body {
       <p>Getting Top 10 in all 144</p>
     </div>
 
+	<div id="my-map"></div>
     <div id='bar_chart'></div>
     <div id='line_chart'></div>
     
 
-	<div id="my-map"></div>
 <script>
 window.onload = function () {
 
@@ -116,22 +116,25 @@ window.onload = function () {
 		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 	});
 
+    var iconSize = 28;
+
     var map = L.map('my-map')
     //.fitBounds(geojson.getBounds())
     .setView([53.380645, -2.478618], 14);
 
     basemap.addTo(map);
 
+    // do this four times for me, fae, both, neither
     $.getJSON("geojson/thom.geojson", function(data) {
 
 
-    // do this four times for me, fae, both, neither
+    
     var geojson = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
-                          iconSize: [14, 14],
-                          iconAnchor: [0, 0],
+                          iconSize: [iconSize, iconSize],
+                          iconAnchor: [iconSize/2, iconSize/2],
                           popupAnchor:  [0, 0],
                           iconUrl: 'icons/gray_dot.png'
                   });
@@ -144,27 +147,22 @@ window.onload = function () {
       }
     });
 
-    
-
-    
     geojson.addTo(map);
   });
 
     $.getJSON("geojson/fae.geojson", function(data) {
 
-
-    // do this four times for me, fae, both, neither
     var geojson0 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
-       var smallIcon = L.icon({
-                          iconSize: [14, 14],
-                          iconAnchor: [0, 0],
+       var smallIcon0 = L.icon({
+                          iconSize: [iconSize, iconSize],
+                          iconAnchor: [iconSize/2, iconSize/2],
                           popupAnchor:  [0, 0],
                           iconUrl: 'icons/red_dot.png'
                   });
 
-         return L.marker(latlng, {icon: smallIcon});
+         return L.marker(latlng, {icon: smallIcon0});
         },
     
       onEachFeature: function (feature, layer) {
@@ -182,14 +180,14 @@ window.onload = function () {
     var geojson1 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
-       var smallIcon = L.icon({
-                          iconSize: [14, 14],
-                          iconAnchor: [0, 0],
+       var smallIcon1 = L.icon({
+                          iconSize: [iconSize, iconSize],
+                          iconAnchor: [iconSize/2, iconSize/2],
                           popupAnchor:  [0, 0],
                           iconUrl: 'icons/green_dot.png'
                   });
 
-         return L.marker(latlng, {icon: smallIcon});
+         return L.marker(latlng, {icon: smallIcon1});
         },
     
       onEachFeature: function (feature, layer) {
@@ -208,14 +206,14 @@ window.onload = function () {
     var geojson2 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
-       var smallIcon = L.icon({
-                          iconSize: [14, 14],
-                          iconAnchor: [0, 0],
+       var smallIcon2 = L.icon({
+                          iconSize: [iconSize, iconSize],
+                          iconAnchor: [iconSize/2, iconSize/2],
                           popupAnchor:  [0, 0],
                           iconUrl: 'icons/black_dot.png'
                   });
 
-         return L.marker(latlng, {icon: smallIcon});
+         return L.marker(latlng, {icon: smallIcon2});
         },
     
       onEachFeature: function (feature, layer) {
