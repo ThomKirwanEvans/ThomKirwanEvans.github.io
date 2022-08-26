@@ -234,9 +234,13 @@ window.onload = function () {
   
   // auto plot
   
-function makeplot() {
- 	Plotly.d3.csv("https://raw.githubusercontent.com/ThomKirwanEvans/ThomKirwanEvans.github.io/main/data/timeseries.csv", function(data){ processData(data) } );
 
+
+
+};
+
+function makeplot() {
+ 	Plotly.d3.csv("https://raw.githubusercontent.com/ThomKirwanEvans/ThomKirwanEvans.github.io/main/data/timeseries.csv", function(data) { processData(data) } );
 };
 	
 function processData(allRows) {
@@ -253,8 +257,8 @@ function processData(allRows) {
 	makePlotly( x, y, standard_deviation );
 }
 
-function makePlotly( x, y, standard_deviation ){
-	var plotDiv = document.getElementById("plot");
+function makePlotly( x, y, standard_deviation ) {
+	var plotDiv = document.getElementById("line_chart_auto");
 	var traces = [{
 		x: x, 
 		y: y
@@ -263,10 +267,9 @@ function makePlotly( x, y, standard_deviation ){
 	Plotly.newPlot('myDiv', traces, 
 		{title: 'Plotting CSV data from AJAX call'});
 };
+
   makeplot();
 
-
-};
 </script>
 </body>
 </html>
