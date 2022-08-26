@@ -252,9 +252,12 @@ window.onload = function () {
       x: x,
       y: thom_y,
       line:{
-          color: ['rgba(204,204,204,1)']
+          color:['rgb(204,204,204)',
+          width:3,
+          shape: 'spline'
       },
       type: 'scatter',
+      mode: 'lines',
       name: 'Thom'
     };
     
@@ -262,9 +265,12 @@ window.onload = function () {
       x: x,
       y: fae_y,
       line:{
-          color: ['rgba(222,45,38,0.8)']
+          color: 'rgb(222,45,38)',
+          width:3,
+          shape: 'spline'
       },
       type: 'scatter',
+      mode: 'lines',
       name: 'Fae'
     };
     
