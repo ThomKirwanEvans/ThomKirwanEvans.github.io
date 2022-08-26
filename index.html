@@ -236,13 +236,14 @@ window.onload = function () {
   
     
     function processTimeSeriesData(allRows) {
-    	var x = [], thom_y = [], fae_y = [];
+    	var x = [], thom_y = [], fae_y = [], combined_y = [];
     
     	for (var i=0; i<allRows.length; i++) {
     		row = allRows[i];
     		x.push( row['x'] );
     		thom_y.push( row['thom'] );
             fae_y.push( row['fae'] );
+            combined_y.push( row['combined'] );
     	}
     
     
@@ -284,6 +285,39 @@ window.onload = function () {
     };
     
     Plotly.newPlot('line_chart_auto', timedata, time_layout);
+    
+    var N = 144/N
+    var y_actuals = [thom_y.at(-1), fae_y.at(-1), combined_y.at(-1)]
+	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, combined_y.at(-1)/N]
+    var data = [{
+      type: 'bar',
+      x: y_pct,
+      y: ['Thom  ', 'Fae   ', 'Combined  '],
+      text: y_actuals.map(String),
+      marker:{
+      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)','rgba(26, 188, 156, 1)'],
+      },
+      
+      orientation: 'h'
+    }];
+    
+    var bar_layout = {
+      title: 'Top 10 Placements',
+      
+      xaxis: {
+        title: 'Percentage Complete',
+        range: [0, 100],
+        zeroline: false,
+        fixedrange:true
+      },
+      yaxis: {
+        fixedrange:true
+      }
+    };
+    
+    Plotly.newPlot('bar_chart_auto', data, bar_layout);
+    
+    
     };
     Plotly.d3.csv("data/timeseries.csv", function(data){ processTimeSeriesData(data) } );
 
