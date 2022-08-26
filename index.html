@@ -234,41 +234,63 @@ window.onload = function () {
   
   // auto plot
   
+    
+    function processTimeSeriesData(allRows) {
+    	var x = [], thom_y = [], fae_y;
+    
+    	for (var i=0; i<allRows.length; i++) {
+    		row = allRows[i];
+    		x.push( row['x'] );
+    		thom_y.push( row['thom'] );
+            fae_y.push( row['fae'] );
+    	}
+    
+    
+    var trace1 = {
+      x: x,
+      y: thom_y,
+      line:{
+          color: ['rgba(204,204,204,1)']
+      },
+      type: 'scatter',
+      name: 'Thom'
+    };
+    
+    var trace2 = {
+      x: x,
+      y: fae_y,
+      line:{
+          color: ['rgba(222,45,38,0.8)']
+      },
+      type: 'scatter',
+      name: 'Fae'
+    };
+    
+    var timedata = [trace1, trace2];
+    
+    var time_layout = {
+      title: 'Segments Over Time',
+      xaxis: {
+        title: 'Weeks',
+        showgrid: false,
+        zeroline: false,
+        fixedrange:true
+      },
+      yaxis: {
+        title: 'Segments',
+        showline: false,
+        fixedrange:true
+      }
+    };
+    
+    Plotly.newPlot('line_chart_auto', timedata, time_layout);
+    };
+    Plotly.d3.csv("https://raw.githubusercontent.com/ThomKirwanEvans/ThomKirwanEvans.github.io/main/data/timeseries.csv", function(data){ processTimeSeriesData(data) } );
 
 
 
 };
 
-function makeplot() {
- 	Plotly.d3.csv("https://raw.githubusercontent.com/ThomKirwanEvans/ThomKirwanEvans.github.io/main/data/timeseries.csv", function(data) { processData(data) } );
-};
-	
-function processData(allRows) {
-
-	console.log(allRows);
-	var x = [], y = [], standard_deviation = [];
-
-	for (var i=0; i<allRows.length; i++) {
-		row = allRows[i];
-		x.push( row['x'] );
-		y.push( row['thom'] );
-	}
-	console.log( 'X',x, 'Y',y, 'SD',standard_deviation );
-	makePlotly( x, y, standard_deviation );
-}
-
-function makePlotly( x, y, standard_deviation ) {
-	var plotDiv = document.getElementById("line_chart_auto");
-	var traces = [{
-		x: x, 
-		y: y
-	}];
-
-	Plotly.newPlot('myDiv', traces, 
-		{title: 'Plotting CSV data from AJAX call'});
-};
-
-  makeplot();
 
 </script>
 </body>
