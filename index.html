@@ -70,7 +70,7 @@ window.onload = function () {
 
     
     var geojson = L.geoJson(data, {
-    
+      var iconSize = 22;
       pointToLayer: function (feature, latlng) {
        var smallIcon = L.icon({
                           iconSize: [iconSize, iconSize],
@@ -93,7 +93,7 @@ window.onload = function () {
     $.getJSON("geojson/fae.geojson", function(data) {
 
     var geojson0 = L.geoJson(data, {
-    
+      var iconSize = 22;
       pointToLayer: function (feature, latlng) {
        var smallIcon0 = L.icon({
                           iconSize: [iconSize, iconSize],
@@ -118,7 +118,7 @@ window.onload = function () {
 
     // do this four times for me, fae, both, neither
     var geojson1 = L.geoJson(data, {
-    
+      var iconSize = 28;
       pointToLayer: function (feature, latlng) {
        var smallIcon1 = L.icon({
                           iconSize: [iconSize, iconSize],
@@ -140,7 +140,7 @@ window.onload = function () {
   });
   
   $.getJSON("geojson/neither.geojson", function(data) {
-
+    var iconSize = 14;
     var geojson2 = L.geoJson(data, {
     
       pointToLayer: function (feature, latlng) {
