@@ -4,12 +4,21 @@
   <title>Lymm Segment Hunters</title>
   <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
 
-<link rel="stylesheet" href="js/leaflet.css" />
-<link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet'>
-<script src="js/leaflet.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="js/leaflet.css" />  -->
+<!-- <script src="js/leaflet.js"></script>  -->
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+   integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+   crossorigin=""/>
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+   crossorigin=""></script>
 
 
 
@@ -45,7 +54,9 @@ body {
     <div id='line_chart', style="margin:60px;"></div>
     <div id='bar_chart_auto', style="margin:80px;"></div>
     <div id='line_chart_auto', style="margin:80px;"></div>
-    
+    <div class="w3-container w3-center">
+      <p>Many thanks to Chris Bell at https://www.doogal.co.uk/ for help with sgement data.</p>
+    </div>
 
 <script>
 window.onload = function () {
