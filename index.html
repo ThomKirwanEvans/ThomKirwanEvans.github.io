@@ -192,89 +192,89 @@ window.onload = function () {
     	}
     
     
-    var trace1 = {
-      x: x,
-      y: thom_y,
-      line:{
-          color:'rgb(204,204,204)',
-          width:3,
-      },
-      type: 'scatter',
-      mode: 'lines+markers',
-      marker: {
-        color: 'rgb(204,204,204)',
-        size: 8
-      },
-      name: 'Thom'
-    };
-    
-    var trace2 = {
-      x: x,
-      y: fae_y,
-      line:{
-          color: 'rgb(222,45,38)',
-          width:3,
-      },
-      type: 'scatter',
-      mode: 'lines+markers',
-      marker: {
-        color: 'rgb(222,45,38)',
-        size: 8
-      },
-      name: 'Fae'
-    };
-    
-    var timedata = [trace1, trace2];
-    
-    var time_layout = {
-      title: 'Segments Over Time',
-      xaxis: {
-        title: 'Weeks',
-        showgrid: false,
-        zeroline: false,
-        fixedrange:true
-      },
-      yaxis: {
-        title: 'Segments',
-        showline: true,
-        fixedrange:true
-      }
-    };
-    
-    Plotly.newPlot('line_chart_auto', timedata, time_layout);
-    
-    var N = 144/100
-    var y_actuals = [thom_y.at(-1), fae_y.at(-1), combined_y.at(-1)]
-	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, combined_y.at(-1)/N]
-    var data = [{
-      type: 'bar',
-      x: y_pct,
-      y: ['Thom  ', 'Fae   ', 'Combined  '],
-      text: y_actuals.map(String),
-      marker:{
-      color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)','rgba(26, 188, 156, 1)'],
-      },
-      
-      orientation: 'h'
-    }];
-    
-    var bar_layout = {
-      title: 'Top 10 Placements',
-      
-      xaxis: {
-        title: 'Percentage Complete',
-        range: [0, 100],
-        zeroline: false,
-        fixedrange:true
-      },
-      yaxis: {
-        fixedrange:true
-      }
-    };
-    
-    Plotly.newPlot('bar_chart_auto', data, bar_layout);
-    
-    
+        var trace1 = {
+          x: x,
+          y: thom_y,
+          line:{
+              color:'rgb(204,204,204)',
+              width:3,
+          },
+          type: 'scatter',
+          mode: 'lines+markers',
+          marker: {
+            color: 'rgb(204,204,204)',
+            size: 8
+          },
+          name: 'Thom'
+        };
+        
+        var trace2 = {
+          x: x,
+          y: fae_y,
+          line:{
+              color: 'rgb(222,45,38)',
+              width:3,
+          },
+          type: 'scatter',
+          mode: 'lines+markers',
+          marker: {
+            color: 'rgb(222,45,38)',
+            size: 8
+          },
+          name: 'Fae'
+        };
+        
+        var timedata = [trace1, trace2];
+        
+        var time_layout = {
+          title: 'Segments Over Time',
+          xaxis: {
+            title: 'Weeks',
+            showgrid: false,
+            zeroline: false,
+            fixedrange:true
+          },
+          yaxis: {
+            title: 'Segments',
+            showline: true,
+            fixedrange:true
+          }
+        };
+        
+        Plotly.newPlot('line_chart_auto', timedata, time_layout);
+        
+        var N = 144/100
+        var y_actuals = [thom_y.at(-1), fae_y.at(-1), combined_y.at(-1)]
+    	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, combined_y.at(-1)/N]
+        var data = [{
+          type: 'bar',
+          x: y_pct,
+          y: ['Thom  ', 'Fae   ', 'Combined  '],
+          text: y_actuals.map(String),
+          marker:{
+          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)','rgba(26, 188, 156, 1)'],
+          },
+          
+          orientation: 'h'
+        }];
+        
+        var bar_layout = {
+          title: 'Top 10 Placements',
+          
+          xaxis: {
+            title: 'Percentage Complete',
+            range: [0, 100],
+            zeroline: false,
+            fixedrange:true
+          },
+          yaxis: {
+            fixedrange:true
+          }
+        };
+        
+        Plotly.newPlot('bar_chart_auto', data, bar_layout);
+        
+        
     };
     Plotly.d3.csv("data/timeseries.csv", function(data){ processTimeSeriesData(data) } );
 
