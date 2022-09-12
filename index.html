@@ -213,13 +213,13 @@ window.onload = function () {
           x: x,
           y: fae_y,
           line:{
-              color: 'rgb(222,45,38)',
+              color: 'rgba(222,45,38,0.5)',
               width:1,
           },
           type: 'scatter',
           mode: 'lines+markers',
           marker: {
-            color: 'rgb(222,45,38)',
+            color: 'rgba(222,45,38,0.5)',
             size: 8
           },
           name: 'Fae Top 10'
@@ -266,11 +266,17 @@ window.onload = function () {
         var data = [{
           type: 'bar',
           x: y_pct,
-          y: ['Thom  ', 'Fae Top 10','Fae Top 3 ', 'Combined  '],
+          y: ['Thom  ', 'Fae Top 10  ','Fae Top 3  ', 'Combined  '],
           text: y_actuals.map(String),
           marker:{
           color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.5)', 'rgba(222,45,38,1)','rgba(26, 188, 156, 1)'],
           },
+          
+          transforms: [{
+            type: 'sort',
+            target: 'y',
+            order: 'descending'
+          }
           
           orientation: 'h'
         }];
