@@ -181,13 +181,14 @@ window.onload = function () {
   
     
     function processTimeSeriesData(allRows) {
-    	var x = [], thom_y = [], fae_y = [], combined_y = [];
+    	var x = [], thom_y = [], fae_y = [], fae_hard_y = [], combined_y = [];
     
     	for (var i=0; i<allRows.length; i++) {
     		row = allRows[i];
     		x.push( row['x'] );
     		thom_y.push( row['thom'] );
             fae_y.push( row['fae'] );
+            fae_hard_y.push( row['fae_hard'] );
             combined_y.push( row['combined'] );
     	}
     
@@ -213,6 +214,22 @@ window.onload = function () {
           y: fae_y,
           line:{
               color: 'rgb(222,45,38)',
+              width:1,
+          },
+          type: 'scatter',
+          mode: 'lines+markers',
+          marker: {
+            color: 'rgb(222,45,38)',
+            size: 8
+          },
+          name: 'Fae Top 10'
+        };
+        
+        var trace3 = {
+          x: x,
+          y: fae_hard_y,
+          line:{
+              color: 'rgb(222,45,38)',
               width:3,
           },
           type: 'scatter',
@@ -221,10 +238,10 @@ window.onload = function () {
             color: 'rgb(222,45,38)',
             size: 8
           },
-          name: 'Fae'
+          name: 'Fae Top 3'
         };
         
-        var timedata = [trace1, trace2];
+        var timedata = [trace1, trace2, trace3];
         
         var time_layout = {
           title: 'Segments Over Time',
@@ -244,15 +261,15 @@ window.onload = function () {
         Plotly.newPlot('line_chart_auto', timedata, time_layout);
         
         var N = 144/100
-        var y_actuals = [thom_y.at(-1), fae_y.at(-1), combined_y.at(-1)]
-    	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, combined_y.at(-1)/N]
+        var y_actuals = [thom_y.at(-1), fae_y.at(-1), fae_hard_y.at(-1), combined_y.at(-1)]
+    	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, fae_hard_y.at(-1)/N, combined_y.at(-1)/N]
         var data = [{
           type: 'bar',
           x: y_pct,
-          y: ['Thom  ', 'Fae   ', 'Combined  '],
+          y: ['Thom  ', 'Fae Top 10','Fae Top 3 ', 'Combined  '],
           text: y_actuals.map(String),
           marker:{
-          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.8)','rgba(26, 188, 156, 1)'],
+          color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.5)', 'rgba(222,45,38,1)','rgba(26, 188, 156, 1)'],
           },
           
           orientation: 'h'
