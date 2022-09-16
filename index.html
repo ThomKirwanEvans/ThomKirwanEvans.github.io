@@ -181,7 +181,7 @@ window.onload = function () {
   
     
     function processTimeSeriesData(allRows) {
-    	var x = [], thom_y = [], fae_y = [], fae_hard_y = [], combined_y = [];
+    	var x = [], thom_y = [], fae_y = [], fae_hard_y = [], thom_hard_y = [], combined_y = [];
     
     	for (var i=0; i<allRows.length; i++) {
     		row = allRows[i];
@@ -189,6 +189,7 @@ window.onload = function () {
     		thom_y.push( row['thom'] );
             fae_y.push( row['fae'] );
             fae_hard_y.push( row['fae_hard'] );
+            fae_hard_y.push( row['thom_hard'] );
             combined_y.push( row['combined'] );
     	}
     
@@ -206,7 +207,23 @@ window.onload = function () {
             color: 'rgb(204,204,204)',
             size: 8
           },
-          name: 'Thom'
+          name: 'Thom Top 10'
+        };
+        
+        var trace4 = {
+          x: x,
+          y: thom_hard_y,
+          line:{
+              color:'rgb(204,204,204)',
+              width:3,
+          },
+          type: 'scatter',
+          mode: 'lines+markers',
+          marker: {
+            color: 'rgb(204,204,204,0.5)',
+            size: 8
+          },
+          name: 'Thom Top 3'
         };
         
         var trace2 = {
@@ -241,7 +258,7 @@ window.onload = function () {
           name: 'Fae Top 3'
         };
         
-        var timedata = [trace1, trace2, trace3];
+        var timedata = [trace1, trace 4, trace2, trace3];
         
         var time_layout = {
           title: 'Segments Over Time',
@@ -261,12 +278,12 @@ window.onload = function () {
         Plotly.newPlot('line_chart_auto', timedata, time_layout);
         
         var N = 144/100
-        var y_actuals = [thom_y.at(-1), fae_y.at(-1), fae_hard_y.at(-1), combined_y.at(-1)]
-    	 var y_pct = [thom_y.at(-1)/N, fae_y.at(-1)/N, fae_hard_y.at(-1)/N, combined_y.at(-1)/N]
+        var y_actuals = [thom_y.at(-1), thom_hard_y.at(-1), fae_y.at(-1), fae_hard_y.at(-1), combined_y.at(-1)]
+    	 var y_pct = [thom_y.at(-1)/N, thom_hard_y.at(-1)/N, fae_y.at(-1)/N, fae_hard_y.at(-1)/N, combined_y.at(-1)/N]
         var data = [{
           type: 'bar',
           x: y_pct,
-          y: ['Thom  ', 'Fae Top 10  ','Fae Top 3  ', 'Combined  '],
+          y: ['Thom Top 10  ', 'Thom Top 3  ', 'Fae Top 10  ','Fae Top 3  ', 'Combined  '],
           text: y_actuals.map(String),
           marker:{
               color: ['rgba(204,204,204,1)', 'rgba(222,45,38,0.4)', 'rgba(222,45,38,0.8)','rgba(26, 188, 156, 1)'],
@@ -275,7 +292,7 @@ window.onload = function () {
           transforms: [{
             type: 'sort',
             target: 'x',
-            order: 'descending'
+            order: 'ascending'
           }],
           
           orientation: 'h'
