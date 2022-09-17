@@ -10,6 +10,7 @@
 { "type": "Feature", "properties": { "ID": 14671372, "Name": "Dam dip", "StartLat": 53.378917, "StartLng": -2.482701, "Type": "R", "latitude": 53.378917, "longitude": -2.482701 }, "geometry": { "type": "Point", "coordinates": [ -2.482701, 53.378917 ] } },
 { "type": "Feature", "properties": { "ID": 8049197, "Name": "Park Stride", "StartLat": 53.38078, "StartLng": -2.487999, "Type": "R", "latitude": 53.38078, "longitude": -2.487999 }, "geometry": { "type": "Point", "coordinates": [ -2.487999, 53.38078 ] } },
 { "type": "Feature", "properties": { "ID": 14691501, "Name": "Burford Climb", "StartLat": 53.38133, "StartLng": -2.44502, "Type": "R", "latitude": 53.38133, "longitude": -2.44502 }, "geometry": { "type": "Point", "coordinates": [ -2.44502, 53.38133 ] } },
-{ "type": "Feature", "properties": { "ID": 8306055, "Name": "Rising Star", "StartLat": 53.384499, "StartLng": -2.494749, "Type": "R", "latitude": 53.384499, "longitude": -2.494749 }, "geometry": { "type": "Point", "coordinates": [ -2.494749, 53.384499 ] } }
+{ "type": "Feature", "properties": { "ID": 8306055, "Name": "Rising Star", "StartLat": 53.384499, "StartLng": -2.494749, "Type": "R", "latitude": 53.384499, "longitude": -2.494749 }, "geometry": { "type": "Point", "coordinates": [ -2.494749, 53.384499 ] } },
+{ "type": "Feature", "properties": { "ID": 27873602, "Name": "Halfacre to Warr Road", "StartLat": 53.379712, "StartLng": -2.520782, "Type": "R", "latitude": 53.379712, "longitude": -2.520782 }, "geometry": { "type": "Point", "coordinates": [ -2.520782, 53.379712 ] } }
 ]
 }
