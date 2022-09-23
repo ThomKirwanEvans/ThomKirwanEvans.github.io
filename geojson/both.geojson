@@ -1,6 +1,7 @@
 {
 "type": "FeatureCollection",
 "features": [
+{ "type": "Feature", "properties": { "ID": 23176270, "Name": "Footpath 40 - West to East", "StartLat": 53.371994, "StartLng": -2.48434, "Type": "R", "latitude": 53.371994, "longitude": -2.48434 }, "geometry": { "type": "Point", "coordinates": [ -2.48434, 53.371994 ] } },
 { "type": "Feature", "properties": { "ID": 16807184, "Name": "Highfield to Halfacre", "StartLat": 53.374383, "StartLng": -2.494183, "Type": "R", "latitude": 53.374383, "longitude": -2.494183 }, "geometry": { "type": "Point", "coordinates": [ -2.494183, 53.374383 ] } },
 { "type": "Feature", "properties": { "ID": 26452153, "Name": "Lakeside Road narrow section", "StartLat": 53.37562, "StartLng": -2.484189, "Type": "R", "latitude": 53.37562, "longitude": -2.484189 }, "geometry": { "type": "Point", "coordinates": [ -2.484189, 53.37562 ] } },
 { "type": "Feature", "properties": { "ID": 13916025, "Name": "Lakeside Rd second from alley", "StartLat": 53.375726, "StartLng": -2.484151, "Type": "R", "latitude": 53.375726, "longitude": -2.484151 }, "geometry": { "type": "Point", "coordinates": [ -2.484151, 53.375726 ] } },
