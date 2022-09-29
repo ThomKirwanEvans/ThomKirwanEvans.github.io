@@ -51,8 +51,8 @@ body {
     </div>
 
 	<div id="my-map"></div>
-    <div id='bar_chart', style="margin:60px;"></div>
-    <div id='line_chart', style="margin:60px;"></div>
+    //<div id='bar_chart', style="margin:60px;"></div>
+    //<div id='line_chart', style="margin:60px;"></div>
     <div id='bar_chart_auto', style="margin:60px;"></div>
     <div id='line_chart_auto', style="margin:60px;"></div>
     <div id="table-container"></div>
@@ -272,13 +272,25 @@ window.onload = function () {
           },
           height: 500,
           xaxis: {
-            title: 'Weeks',
+            // title: 'Weeks',
+            title: {
+            text:'Weeks',
+            font: {
+              size: 24
+            },
+          },
             showgrid: false,
             zeroline: false,
             fixedrange:true
           },
           yaxis: {
-            title: 'Segments',
+            //title: 'Segments',
+            title: {
+            text:'Segments',
+            font: {
+              size: 24
+            },
+          },
             showline: true,
             fixedrange:true
           }
@@ -308,10 +320,22 @@ window.onload = function () {
         }];
         
         var bar_layout = {
-          title: 'Top 10 Placements',
+          //title: 'Top 10 Placements',
+          title: {
+            text:'Top 10 Placements',
+            font: {
+              size: 24
+            },
+          },
           height: 500,
           xaxis: {
-            title: 'Percentage Complete',
+            //title: 'Percentage Complete',
+            title: {
+            text:'Percentage Complete',
+            font: {
+              size: 24
+            },
+          },
             range: [0, 100],
             zeroline: false,
             fixedrange:true
@@ -331,7 +355,7 @@ window.onload = function () {
 
 };
 
-
+// Table code below adapted from https://codepen.io/jimcser/pen/LvWwGz
 Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
   
   function unpack(rows, key) {
