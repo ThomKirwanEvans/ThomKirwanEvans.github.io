@@ -19,6 +19,7 @@
  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
    crossorigin=""></script>
+<script src="js/csv_to_html_table.js"></script>
 
 
 
@@ -54,6 +55,7 @@ body {
     <div id='line_chart', style="margin:60px;"></div>
     <div id='bar_chart_auto', style="margin:60px;"></div>
     <div id='line_chart_auto', style="margin:60px;"></div>
+    <div id="table-container"></div>
     <div class="w3-container w3-center", style="font-size:15px;">
       <p>Many thanks to Chris Bell at <a href="https://www.doogal.co.uk/">Doogal</a> for help with segment data.</p>
     </div>
@@ -323,6 +325,17 @@ window.onload = function () {
 };
 
 
+CsvToHtmlTable.init({
+            csv_path: "data/10_not_3.csv",
+            element: "table-container",
+            allow_download: false,
+            datatables_options: {
+                paging: false
+            },
+        });
+
 </script>
+
+
 </body>
 </html>
