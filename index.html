@@ -97,7 +97,7 @@ window.onload = function () {
         },
     
       onEachFeature: function (feature, layer) {
-        layer.bindPopup('<p style="font-size:18px;">' + feature.properties.Link + '</p>');
+        layer.bindPopup('<p style="font-size:24px;">' + feature.properties.Link + '</p>');
       }
     });
 
@@ -264,6 +264,7 @@ window.onload = function () {
         
         var time_layout = {
           title: 'Segments Over Time',
+          height: 500,
           xaxis: {
             title: 'Weeks',
             showgrid: false,
@@ -302,7 +303,7 @@ window.onload = function () {
         
         var bar_layout = {
           title: 'Top 10 Placements',
-          
+          height: 500,
           xaxis: {
             title: 'Percentage Complete',
             range: [0, 100],
@@ -353,14 +354,14 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
       align: "center",
       line: {width: 1, color: 'rgb(50, 50, 50)'},
       fill: {color: ['rgba(222,45,38, 0.8)']},
-      font: {family: "Arial", size: 18, color: "white"}
+      font: {family: "Arial", size: 24, color: "white"}
     },
     cells: {
       values: cellValues,
       align: ["center", "center"],
       line: {color: "black", width: 1},
       fill: {color: ['rgba(222,45,38, 0.4)']},
-      font: {family: "Arial", size: 17, color: ["black"]}
+      font: {family: "Arial", size: 23, color: ["black"]}
     },
      
       transforms: [{
@@ -375,10 +376,11 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
   var data = [table];
 
   // define layout
-  var layout = {
+  var table_layout = {
+  width: 500,
   };
 
-  Plotly.plot('table-container', data, layout);  
+  Plotly.plot('table-container', data, table_layout);  
   
 });   
 
