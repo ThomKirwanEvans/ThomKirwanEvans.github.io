@@ -26,7 +26,7 @@
 <style>
 #my-map {
 	width:100%;
-	height:500px;
+	height:700px;
 }
 
 .header {
@@ -264,7 +264,7 @@ window.onload = function () {
         
         var time_layout = {
           title: 'Segments Over Time',
-          height: 500,
+          height: 700,
           xaxis: {
             title: 'Weeks',
             showgrid: false,
@@ -303,7 +303,7 @@ window.onload = function () {
         
         var bar_layout = {
           title: 'Top 10 Placements',
-          height: 500,
+          height: 700,
           xaxis: {
             title: 'Percentage Complete',
             range: [0, 100],
@@ -377,7 +377,6 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
 
   // define layout
   var table_layout = {
-  width: 500,
   };
 
   Plotly.plot('table-container', data, table_layout);  
