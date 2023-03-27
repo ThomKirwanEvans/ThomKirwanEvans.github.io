@@ -272,6 +272,17 @@ window.onload = function () {
       }
     };
     
+    var finish_line = {
+      x: [0,0],
+      y: [2.5, -2.5],
+      type: 'line',
+      name: 'Roxy Love',
+      line: {
+        width: 4,
+        color: 'rgb(0,0,0)',
+      }
+    };
+    
     var runners = {
       x: [114.11-33.28, 114.11 - 44.99],
       y: [3, -1],
@@ -306,7 +317,7 @@ window.onload = function () {
           }
         };
     
-    var distdata = [thom_dist_line, fae_dist_line, runners];
+    var distdata = [thom_dist_line, fae_dist_line, runners, finish_line];
     
     Plotly.newPlot('dist_chart', distdata, dist_layout);
   
