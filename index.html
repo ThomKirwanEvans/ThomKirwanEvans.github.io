@@ -43,6 +43,14 @@
   color: white;
   font-size: 30px;
 }
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
 body {
     font-family: 'Poiret One';font-size: 22px;
 }
@@ -57,10 +65,11 @@ body {
     </div>
 
 	<div id="my-map"></div>
-	<div id='dist_chart', style="margin:10px;"></div>
-    <div id='bar_chart_auto', style="margin:30px;"></div>
-    <div id='line_chart_auto', style="margin:30px;"></div>
-    <div id="table-container"></div>
+	<div id='dist_chart', style="margin:10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
+    <div id='bar_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
+    <div id='line_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
+    <div id="table-container", style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
+    
     <div class="w3-container w3-center", style="font-size:15px;">
       <p>Many thanks to Chris Bell at <a href="https://www.doogal.co.uk/">Doogal</a> for help with segment data.</p>
     </div>
@@ -457,14 +466,14 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
       values: headerValues, 
       align: "center",
       line: {width: 1, color: 'rgb(50, 50, 50)'},
-      fill: {color: ['rgba(222,45,38, 0.8)']},
+      fill: {color: ['rgba(228, 24, 89, 0.8)']},
       font: {family: "Arial", size: 24, color: "white"}
     },
     cells: {
       values: cellValues,
       align: ["center", "center"],
       line: {color: "black", width: 1},
-      fill: {color: ['rgba(222,45,38, 0.4)']},
+      fill: {color: ['rgba(255, 255, 255, 1.0)']},
       font: {family: "Arial", size: 23, color: ["black"]}
     },
      
