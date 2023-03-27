@@ -45,11 +45,36 @@
 }
 .styled-table {
     border-collapse: collapse;
-    margin: 25px 0;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 0.9em;
     font-family: sans-serif;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);
+}
+.styled-table thead tr {
+    background-color: #E41859;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #E41859;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #E41859;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
 }
 body {
     font-family: 'Poiret One';font-size: 22px;
@@ -65,10 +90,38 @@ body {
     </div>
 
 	<div id="my-map"></div>
-	<div id='dist_chart', style="margin:10px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
+	<div id='dist_chart', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
+	<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Who</th>
+            <th>Fastest Pace</th>
+            <th>Average Pace</th>
+            <th>Slowest Pace</th>
+            <th>Average Needed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mistress Summer</td>
+            <td>3:39</td>
+            <td>5:58</td>
+            <td>8:34</td>
+            <td>6:23</td>
+        </tr>
+        <tr>
+            <td>Roxy Love</td>
+            <td>4:59</td>
+            <td>7:08</td>
+            <td>8:50</td>
+            <td>8:03</td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+    </table>
     <div id='bar_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
     <div id='line_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
-    <div id="table-container", style="box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
+    <div id="table-container", style="margin:30px;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
     
     <div class="w3-container w3-center", style="font-size:15px;">
       <p>Many thanks to Chris Bell at <a href="https://www.doogal.co.uk/">Doogal</a> for help with segment data.</p>
