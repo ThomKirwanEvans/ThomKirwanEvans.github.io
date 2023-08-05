@@ -134,16 +134,15 @@ body {
     <tbody>
         <!-- update here -->
         <tr>
-            <td>Roxy Love</td><td>"<a href=""https://www.strava.com/segments/7418450"">hill repeats weaste lane</a>"</td>
+            <td>Roxy Love</td><td>"<a href="https://www.strava.com/segments/7418450">hill repeats weaste lane</a>"</td>
         </tr>
         <tr>
-            <td>Roxy Love</td><td>"<a href=""https://www.strava.com/segments/24848263"">Down New Road</a>"</td>
+            <td>Roxy Love</td><td>"<a href="https://www.strava.com/segments/24848263">Down New Road</a>"</td>
         </tr>
         <!-- and so on... -->
     </tbody>
     </table>
     
-    <div id="lost-table-container", style="margin:30px;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
     <div class="w3-container w3-center", style="font-size:15px;">
       <p>Many thanks to Chris Bell at <a href="https://www.doogal.co.uk/">Doogal</a> for help with segment data.</p>
     </div>
@@ -583,64 +582,6 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
   
 });   
 
-// add the lost segments table
-Plotly.d3.csv("data/lost_segments.csv", function(err, rows){
-  
-  function unpack(rows, key) {
-  return rows.map(function(row) { return row[key]; });
-  }
-  
-  // header values
-  var headerNames = Plotly.d3.keys(rows[0]);
-  var headerValues = [headerNames[0],headerNames[1]];
-  
-  // cell values
-  var cellValues = [];
-  for (i = 0; i < headerValues.length; i++) { 
-    cellValue = unpack(rows, headerValues[i]);
-    cellValues[i] = cellValue;
-  }
-  
-  // create table
-  var table = {
-    type: 'table',
-    columnwidth: [50,250],
-    columnorder: [0,1],
-    header: {
-      values: headerValues, 
-      height: 40,
-      align: "center",
-      line: {width: 1, color: 'rgb(50, 50, 50)'},
-      fill: {color: ['rgba(228, 24, 89, 0.8)']},
-      font: {family: "Arial", size: 24, color: "white"}
-    },
-    cells: {
-      values: cellValues,
-      align: ["center", "center"],
-      line: {color: "black", width: 1},
-      fill: {color: ['rgba(255, 255, 255, 1.0)']},
-      font: {family: "Arial", size: 23, color: ["black"]}
-    },
-     
-      transforms: [{
-      type: 'filter',
-      target: unpack(rows,'Number-transactions'),
-      operation: '>',
-      value: 300000
-    }]
-  }
-
- 
-  var data = [table];
-
-  // define layout
-  var table_layout = {
-      height: 700,
-  };
-
-  Plotly.plot('lost-table-container', data, table_layout);  
-  
-});   
 
 </script>
 
