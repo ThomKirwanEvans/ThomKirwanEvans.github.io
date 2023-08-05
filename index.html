@@ -98,7 +98,7 @@ body {
             <th>Fastest Pace</th>
             <th>Average Pace</th>
             <th>Slowest Pace</th>
-            <th>Average Needed</th>
+            <th>Average Pace Needed</th>
         </tr>
     </thead>
     <tbody>
@@ -123,6 +123,26 @@ body {
     <div id='bar_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
     <div id='line_chart_auto', style="margin:30px;box-shadow: 0 0 30px rgba(0, 0, 0, 0.30);"></div>
     <div id="table-container", style="margin:30px;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
+    
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Who</th>
+            <th>Lost Segment</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- update here -->
+        <tr>
+            <td>Roxy Love</td><td>"<a href=""https://www.strava.com/segments/7418450"">hill repeats weaste lane</a>"</td>
+        </tr>
+        <tr>
+            <td>Roxy Love</td><td>"<a href=""https://www.strava.com/segments/24848263"">Down New Road</a>"</td>
+        </tr>
+        <!-- and so on... -->
+    </tbody>
+    </table>
+    
     <div id="lost-table-container", style="margin:30px;box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);"></div>
     <div class="w3-container w3-center", style="font-size:15px;">
       <p>Many thanks to Chris Bell at <a href="https://www.doogal.co.uk/">Doogal</a> for help with segment data.</p>
@@ -563,6 +583,7 @@ Plotly.d3.csv("data/10_not_3.csv", function(err, rows){
   
 });   
 
+// add the lost segments table
 Plotly.d3.csv("data/lost_segments.csv", function(err, rows){
   
   function unpack(rows, key) {
@@ -571,8 +592,7 @@ Plotly.d3.csv("data/lost_segments.csv", function(err, rows){
   
   // header values
   var headerNames = Plotly.d3.keys(rows[0]);
-  var headerValues = [headerNames[0],headerNames[1],
-                      ];
+  var headerValues = [headerNames[0],headerNames[1]];
   
   // cell values
   var cellValues = [];
